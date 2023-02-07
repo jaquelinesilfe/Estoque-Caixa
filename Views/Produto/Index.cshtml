@@ -1,0 +1,84 @@
+@model IEnumerable<Estoque_Caixa.Models.Produto>
+
+    @{
+        ViewData["Title"] = "Listagem de Produtos";
+    }
+
+     <h2>Produtos</h2>
+
+        <p>
+            <a asp-action="Criar">Cadastrar</a>
+        </p>
+
+        <table class="table">
+            <thead>
+                <th>
+                    @Html.DisplayNameFor(model => model.Id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nome)
+                </th>
+                 <th>
+                    @Html.DisplayNameFor(model => model.Descricao)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Marca)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Quantidade)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PrecoUnit)
+                </th>
+                 <th>
+                    @Html.DisplayNameFor(model => model.CodBarras)
+                </th>
+                   <th>
+                    @Html.DisplayNameFor(model => model.DataCadastro)
+                </th>
+                 <th>
+                    @Html.DisplayNameFor(model => model.StatusProduto)
+                </th>
+                <th></th>
+            </thead>
+            <tbody>
+                @foreach (var produto in Model)
+                {
+                   <tr> 
+                        <td>  
+                            @Html.DisplayFor(model => produto.Id)
+                        </td>
+                        
+                        <td>
+                            @Html.DisplayFor(model => produto.Nome)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(model => produto.Descricao)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(model => produto.Marca)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(model => produto.Quantidade)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(model => produto.PrecoUnit)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(model => produto.CodBarras)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(model => produto.DataCadastro)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(model => produto.StatusProduto)
+                        </td>
+                        <td>
+                            <a asp-action="Editar" asp-route-id="@produto.Id">Editar</a> |
+                            <a asp-action="Detalhes" asp-route-id="@produto.Id">Detalhes</a> |
+                            <a asp-action="Deletar" asp-route-id="@produto.Id">Deletar</a>
+                        </td>
+                   </tr> 
+                }
+            </tbody>
+        </table>
